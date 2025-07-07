@@ -165,3 +165,20 @@ if "show_modal" in st.session_state and st.session_state["show_modal"]:
         )
         st.text_area("AI Response:", response, height=200)
     st.markdown("""</div>""", unsafe_allow_html=True)
+
+# Modal Chat Window
+if "show_modal" in st.session_state and st.session_state["show_modal"]:
+    st.markdown("""<div class='chat-modal'>""", unsafe_allow_html=True)
+    if st.button("✖", key="close_modal"):
+        st.session_state["show_modal"] = False
+        st.rerun()
+    st.subheader(st.session_state["active_use_case"])
+    user_input = st.text_input("", key="user_input")
+    if st.button("Send"):
+        with st.spinner("Generating AI response..."):  # ✅ LOADER ADDED HERE
+            response = chat_with_ai(
+                user_input,
+                use_memory=(st.session_state["active_use_case"] == "Chat Agent with Memory / Context of Previous Conversation")
+            )
+        st.text_area("AI Response:", response, height=200)
+    st.markdown("""</div>""", unsafe_allow_html=True)
