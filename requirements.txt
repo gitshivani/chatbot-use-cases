@@ -1,6 +1,6 @@
 python-dotenv
 streamlit
-openai
 requests
 streamlit_extras
 streamlit_option_menu
+openai>=1.0.0
