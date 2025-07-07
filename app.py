@@ -2,7 +2,7 @@ import streamlit as st
 import openai
 import json
 
-# Set Streamlit Page Config
+# Set Streamlit Page Config 
 st.set_page_config(page_title="AI Use Cases Dashboard", layout="wide")
 
 # Custom Styling for Mobile & Desktop
